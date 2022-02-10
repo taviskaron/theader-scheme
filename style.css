@@ -1,0 +1,203 @@
+/*general styling*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding:0;
+    margin: 0;
+    background-color: #cccccc;
+    font-family:  sans-serif;
+}
+
+.main-container {
+    width: 768px;
+    margin: 0 auto;
+    margin-top: 180px;
+    background-color: #fefefe;
+    padding: 50px 50px 100px 100px;
+    font-size: 12pt;
+    line-height: 20pt;
+    color:#555555;
+    height: 200vh;
+}
+
+/*header styling*/
+
+.top-header {
+    width: 100%;
+    font-size: 12pt;
+    margin: 0;
+    padding: 15px 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    transition: all 0.1s linear;
+    height: 80px;
+    background: #fafafa;
+}
+
+ul#main-menu li {
+    list-style: none;
+    display: inline;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+ul#main-menu li:last-of-type {
+    margin-right: 0;
+}
+
+ul#main-menu li a {
+    text-decoration: none;
+}
+
+
+/*mobile menu styling*/
+#side-menu-container {
+    transition: all 0.3s ease-in-out;
+}
+
+
+header #side-menu-container #before-side-menu,
+header #side-menu-container #after-side-menu {
+    display: none;
+}
+
+input[type=checkbox]#toggleSideMenu {
+    box-sizing: border-box;
+    display: none;
+}
+
+
+@media screen and (max-width: 1200px) {
+
+    /*general styling*/
+    .main-container {
+        width: 90%;
+        overflow: hidden;
+        padding: 40px;
+    }
+
+    /*to fit the size of the hamburger button*/
+    .top-header {
+        height: 60px;
+    }
+
+
+    /*styling the container for the menu*/
+    #side-menu-container {
+        position: fixed;
+        left: -250px;
+        top: 0;
+        margin-top: 57px;
+        padding: 15px;
+        width: 250px;
+        height: 100%;
+        background: #f7f7f7;
+        box-shadow: inset -1px 0 5px #eeeeee;
+    }
+
+    header #side-menu-container #before-side-menu,
+    header #side-menu-container #after-side-menu {
+        display: block;
+        background: #999999;
+        color: #fafafa;
+        padding: 15px;
+    }
+
+
+
+    /*styling the menu inside the <nav> block*/
+    #top-menu {
+        transition: top 0.5s ease;
+        width: 100%;
+        margin: 0;
+    }
+
+    ul#main-menu li {
+        display: block;
+        width: 100%;
+        padding: 20px;
+    }
+
+    ul#main-menu li:last-of-type {
+        border-bottom: none;
+    }
+
+    ul#main-menu li a {
+        margin: 0; padding: 0;
+    }
+
+    input[type=checkbox]#toggleSideMenu {
+        box-sizing: border-box;
+        display: none;
+    }
+
+    input[type="checkbox"]#toggleSideMenu:checked ~ #side-menu-container {
+        transform: translateX(250px);
+    }
+
+
+
+    /*hamburger icon styling*/
+    .hamburger-icon {
+        box-sizing: border-box;
+        cursor: pointer;
+        position: absolute;
+        z-index: 99;
+        top: 22px;
+        left: 22px;
+        height: 22px;
+        width: 22px;
+    }
+
+    .hamburger-menu-line {
+        transition: all 0.3s;
+        box-sizing: border-box;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background-color: #666;
+    }
+
+    .horizontal {
+        box-sizing: border-box;
+        position: relative;
+        float: left;
+        margin-top: 3px;
+    }
+
+    .diagonal-1 {
+        position: relative;
+        box-sizing: border-box;
+        float: left;
+    }
+
+    .diagonal-2 {
+        box-sizing: border-box;
+        position: relative;
+        float: left;
+        margin-top: 3px;
+    }
+
+    input[type=checkbox]#toggleSideMenu:checked ~ .hamburger-icon > .horizontal {
+        box-sizing: border-box;
+        opacity: 0;
+    }
+
+    input[type=checkbox]#toggleSideMenu:checked ~ .hamburger-icon > .diagonal-1 {
+        box-sizing: border-box;
+        transform: rotate(135deg);
+        margin-top: 8px;
+    }
+
+    input[type=checkbox]#toggleSideMenu:checked ~ .hamburger-icon > .diagonal-2 {
+        box-sizing: border-box;
+        transform: rotate(-135deg);
+        margin-top: -9px;
+    }
+}
